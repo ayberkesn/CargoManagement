@@ -43,7 +43,7 @@ def cargo_info(cargo_id:int, db):
 
 
 def cargo_tracking(cargo_id : int, db):
-#Kargo takıp (DUZELTİLECEK!!!)
+
     table1 = cargo_info(cargo_id= cargo_id, db=db)
 
     cursor = db.cursor()
@@ -59,7 +59,7 @@ def cargo_tracking(cargo_id : int, db):
     return table1,table2
 
 def get_customer_info(cust_id : int, db):
-    #Seçili müşteri bilgilerini getiriyor  
+  
     cursor = db.cursor()
     query = f"SELECT * FROM customer \
         WHERE {cust_id} = cus_id;"
@@ -69,7 +69,7 @@ def get_customer_info(cust_id : int, db):
     return result
 
 def get_admin_customer_info(db):
-    #Tüm müşteri bilgilerini getiriyor  
+ 
     cursor = db.cursor()
     query = f"SELECT * FROM customer;"
 
@@ -79,7 +79,6 @@ def get_admin_customer_info(db):
     return result
 
 def get_employee_info(id : int,db):
-#employee bilgilerini getiriyor(Employee girişinde kullanılacak)
     cursor = db.cursor()
     query = f"SELECT * FROM employee \
         WHERE {id} = id;"
@@ -90,7 +89,7 @@ def get_employee_info(id : int,db):
     return result
 
 def get_admin_employee_info(db):
-#Tüm employee bilgilerini getiriyor(Admin girişinde kullanılacak)
+
     cursor = db.cursor()
     query = f"SELECT * FROM employee;"
     cursor.execute(query)
@@ -100,7 +99,7 @@ def get_admin_employee_info(db):
     return result
 
 def get_cargo_bill(cargo_id: int, db):
-#Cargo id ile faturasini ceker
+
 
     cursor = db.cursor()
     query = f"SELECT * FROM bill\
@@ -121,7 +120,7 @@ def test(db):
     return result
 
 def get_dist_center_info(db):
-    #admin dist centerları listelemesi için
+
     cursor = db.cursor()
     query = f"Select * from dist_center;"
     cursor.execute(query)   
@@ -131,7 +130,7 @@ def get_dist_center_info(db):
     return result
 
 def get_branch_info(db):
-    #admin branchleri listelemesi için
+ 
     cursor = db.cursor()
     query = f"Select * from branch;"
     cursor.execute(query)   
@@ -141,7 +140,7 @@ def get_branch_info(db):
     return result
 
 def add_dist_center(id,name,db):
-    #Adding dist_center 
+   
     cursor = db.cursor()
     query = f"INSERT INTO dist_center (dc_no, dc_name)\
     Values ({id},\"{name}\");"
@@ -270,8 +269,6 @@ def main():
             if table2[i][j] is None:
                 table2[i][j] = "-"
 
-    # Print the types of elements in the first row
-    #print(table2[len(table2)-1][1])
     convert_table(table1)
     print(table1[1])
     
